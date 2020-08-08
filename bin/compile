@@ -45,6 +45,7 @@ build_pubspec() {
   # getting webdev
   message "running pub global activate webdev"
   /app/dart-sdk/bin/pub global activate webdev
+  export PATH="$PATH":"$HOME/pub-cache/bin"
 
   message "currnt working dir: $PWD"
   if [ -d "web" ]
@@ -54,6 +55,7 @@ build_pubspec() {
     then
       message 'Building with "webdev build"'
       webdev build
+      /app/dart-sdk/bin/webdev build
     else
       message "Building with \"$DART_BUILD_CMD\""
       eval $DART_BUILD_CMD
