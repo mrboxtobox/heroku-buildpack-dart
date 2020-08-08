@@ -55,7 +55,7 @@ build_pubspec() {
     then
       message 'Building with "webdev build"'
       webdev build
-      /app/dart-sdk/bin/webdev build
+#      /app/dart-sdk/bin/webdev build
     else
       message "Building with \"$DART_BUILD_CMD\""
       eval $DART_BUILD_CMD
