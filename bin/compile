@@ -55,7 +55,7 @@ build_pubspec() {
     if [[ -z "$DART_BUILD_CMD" ]]
     then
       message 'Building with "webdev build"'
-      webdev build
+      $($HOME/pub-cache/bin/webdev) build
 #      /app/dart-sdk/bin/webdev build
     else
       message "Building with \"$DART_BUILD_CMD\""
