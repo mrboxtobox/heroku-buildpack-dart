@@ -37,10 +37,10 @@ build_pubspec() {
 
   message "*** Running pub get"
 
-  /app/dart-sdk/bin/pub --version
+  /app/dart-sdk/bin/webdev --version
 
   #start pub from the /app folder to have correct symlink paths
-  /app/dart-sdk/bin/pub get
+  /app/dart-sdk/bin/webdev get
 
   message "currnt working dir: $PWD"
   if [ -d "web" ]
@@ -48,8 +48,8 @@ build_pubspec() {
     message "*** Running pub build"
     if [[ -z "$DART_BUILD_CMD" ]]
     then
-      message 'Building with "pub build"'
-      /app/dart-sdk/bin/pub build
+      message 'Building with "webdev build"'
+      /app/dart-sdk/bin/webdev build
     else
       message "Building with \"$DART_BUILD_CMD\""
       eval $DART_BUILD_CMD
