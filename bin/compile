@@ -52,15 +52,15 @@ build_pubspec() {
   if [ -d "web" ]
   then
     message "*** Running pub build"
-    if [[ -z "$DART_BUILD_CMD" ]]
-    then
-      message 'Building with "webdev build"'
-      $($HOME/pub-cache/bin/webdev) build
-#      /app/dart-sdk/bin/webdev build
-    else
-      message "Building with \"$DART_BUILD_CMD\""
-      eval $DART_BUILD_CMD
-    fi
+#    if [[ -z "$DART_BUILD_CMD" ]]
+#    then
+#      message 'Building with "webdev build"'
+#      $($HOME/pub-cache/bin/webdev) build
+##      /app/dart-sdk/bin/webdev build
+#    else
+#      message "Building with \"$DART_BUILD_CMD\""
+#      eval $DART_BUILD_CMD
+#    fi
   else
     message '*** Skipping pub build because "web" folder not found'
   fi
