@@ -52,15 +52,14 @@ build_pubspec() {
   if [ -d "web" ]
   then
     message "*** Running pub build"
-#    if [[ -z "$DART_BUILD_CMD" ]]
-#    then
-#      message 'Building with "webdev build"'
-#      $($HOME/pub-cache/bin/webdev) build
-##      /app/dart-sdk/bin/webdev build
-#    else
-#      message "Building with \"$DART_BUILD_CMD\""
-#      eval $DART_BUILD_CMD
-#    fi
+    if [[ -z "$DART_BUILD_CMD" ]]
+    then
+      message 'Building with "webdev build"'
+      /app/dart-sdk/bin/pub global run webdev build
+    else
+      message "Building with \"$DART_BUILD_CMD\""
+      eval $DART_BUILD_CMD
+    fi
   else
     message '*** Skipping pub build because "web" folder not found'
   fi
@@ -143,4 +142,5 @@ fi
 # whatever is in $BUILD_DIR, so copy over the pub-cache. Why not put it in
 # $BUILD_DIR in the first place? because we need symlinks setup correctly.
 cp -R $PUB_CACHE $BUILD_DIR/pub-cache
+message "pub-cache"
 message `ls -l $BUILD_DIR/pub-cache`
