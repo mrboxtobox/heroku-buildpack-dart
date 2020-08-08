@@ -34,6 +34,7 @@ build_pubspec() {
   pub_dir=`dirname $filename`
   message "*** Found pubspec.yaml in $BUILD_DIR/$pub_dir"
   cd $BUILD_DIR/$pub_dir
+  message "currnt working dir: $PWD"
 
   message "*** Running pub get"
 
@@ -85,11 +86,11 @@ if [ -z "$DART_SDK_URL" ]; then
 fi
 
 cd $BUILD_DIR
-
+message "currnt working dir: $PWD"
 message "-----> Installing Dart VM via URL $DART_SDK_URL"
 
 cd $CACHE_DIR
-
+message "currnt working dir: $PWD"
 case "${DART_SDK_URL: -3}" in
   tar)
     message "SDK: tarball detected"
@@ -125,7 +126,7 @@ CAN_DART_RUN=`/app/dart-sdk/bin/dart --version`
 message "-----> Dart reports version: $CAN_DART_RUN"
 
 cd $BUILD_DIR
-
+message "currnt working dir: $PWD"
 if [ -z "$PUBSPEC_PATH" ]
 then
   message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
